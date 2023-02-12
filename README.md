@@ -18,6 +18,9 @@ If you do decide not to use the csv files, you will need to change the code in t
 
 Everything for the training and analysis of the 5 models we tested are in the respective files. The are all scripts except for the lightGBM model which is in a jupyter notebook (this is bc it was more complicated to debug and get the data set up right lol). If you do want to seperate the training and evaulation processes for each model, you'll need to break up the functions.
 
+
+### Citation
 Also, if you decide to use this work for your research, please cite the associated paper:
-Jared Gridley, Oshani Seneviratne. Significant Digits: Using Large-Scale Blockchain Data to Predict Fraudulent Addresses. In: IEEE Big Data’22.
-https://doi.org/10.1109/BigData55660.2022.10020971
+<code>
+J. Gridley and O. Seneviratne, "Significant Digits: Using Large-Scale Blockchain Data to Predict Fraudulent Addresses," 2022 IEEE International Conference on Big Data (Big Data), Osaka, Japan, 2022, pp. 903-910, doi: 10.1109/BigData55660.2022.10020971.
+</code>

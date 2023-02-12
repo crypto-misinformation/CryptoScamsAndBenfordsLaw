@@ -22,6 +22,6 @@ Everything for the training and analysis of the 5 models we tested are in the re
 ### Citation
 Also, if you decide to use this work for your research, please cite the associated paper:
 
-> **** 
+> **_Citation:_** 
 J. Gridley and O. Seneviratne, "Significant Digits: Using Large-Scale Blockchain Data to Predict Fraudulent Addresses," 2022 IEEE International Conference on Big Data (Big Data), Osaka, Japan, 2022, pp. 903-910, doi: 10.1109/BigData55660.2022.10020971.
 

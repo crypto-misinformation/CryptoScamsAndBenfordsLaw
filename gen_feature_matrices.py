@@ -3,6 +3,7 @@ import pandas as pd
 import os
 import re
 from scipy.stats import chisquare, kstest
+from tools import calc_true_benford_values
 
 
 feature_labels = ["Address", "in_count", "out_count", "in_unique", "out_unique", "total_count", "in_gas_limit_avg", "in_gas_limit_std", "in_gas_limit_med",
@@ -146,16 +147,13 @@ def benfords_metrics(df):
     if total == 0:
         return np.NaN
 
-    benford = []
     decimal = []
     second_nums_decimal = []
 
-    benford_second = [0.12, 0.114, 0.109, 0.104,
-                      0.10, 0.097, 0.093, 0.09, 0.088, 0.085]
+    benford, benford_second = calc_true_benford_values()
 
     second_nums_decimal.append(second_nums[0]/second_total)
     for k in range(1, 10):
-        benford.append(np.log10((k+1)/k))
         decimal.append(start_nums[k]/total)
         second_nums_decimal.append(second_nums[k]/second_total)
 
@@ -196,13 +194,13 @@ def get_features(df, addr, c=0):
     in_unique, out_unique = unique_address_counts(df, addr)
 
     first, second = benfords_metrics(df)
+
     cs_first = first[0]
     ks_stat_first = first[1]
-    ks_p_first = first[2]
 
     cs_second = second[0]
     ks_stat_second = second[1]
-    ks_p_second = second[2]
+
     feature_vec = [addr, num_incoming, num_outgoing, in_unique, out_unique, total_num_txs,
                    in_gas_limit_avg, in_gas_limit_std, in_gas_limit_med,
                    out_gas_limit_avg, out_gas_limit_std, out_gas_limit_med, in_tx_val_avg, in_tx_val_std, out_tx_val_avg,

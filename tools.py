@@ -29,3 +29,31 @@ def split_data(X, y):
     print("Test:", X_test.shape, y_test.shape)
 
     return X_train, X_val, X_test, y_train, y_val, y_test
+
+
+def calc_true_benford_values():
+    """returns the distribution for Benford's Law for first, 
+    second and third digits
+
+    Returns:
+        list, list, list: benfords distribution for first, second and 
+        third digits
+    """
+    benford_first = []
+    benford_second = []
+    benford_third = []
+
+    for i in range(0, 10):
+
+        # First digit calculation
+        if i != 0:
+            bf = np.log10(1 + 1/i)
+            benford_first.append(bf)
+
+        # Second Digit Calculation
+        bs = 0
+        for j in range(1, 10):
+            bs += np.log10(1 + 1/(i+(j*10)))
+        benford_second.append(bs)
+
+    return benford_first, benford_second

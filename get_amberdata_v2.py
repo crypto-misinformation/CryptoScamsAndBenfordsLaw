@@ -21,7 +21,7 @@ def normalize_df(df):
 
 
 def get_internal_transactions_df(addr):
-    """Not Used anymore
+    """Deprecated
     """
     url = "https://web3api.io/api/v2/addresses/{0}/functions".format(addr)
 
